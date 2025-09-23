@@ -39,17 +39,25 @@ export default function Legal() {
 
   return (
     <section id="legal" className="bg-black py-20 px-6 flex flex-col items-center text-white">
+      {/* Heading */}
       <motion.h2
         className="text-3xl md:text-4xl font-bold text-center mb-12 drop-shadow-lg"
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
+        viewport={{ once: false, amount: 0.3 }}
       >
         Legal Information
       </motion.h2>
 
       {/* Tabs */}
-      <div className="flex space-x-4 mb-10 overflow-x-auto">
+      <motion.div
+        className="flex space-x-4 mb-10 overflow-x-auto"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: false, amount: 0.2 }}
+      >
         {legalPages.map((page, index) => (
           <button
             key={index}
@@ -63,19 +71,22 @@ export default function Legal() {
             {page.title}
           </button>
         ))}
-      </div>
+      </motion.div>
 
       {/* Content */}
       <AnimatePresence mode="wait">
         <motion.div
           key={activePage}
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: false, amount: 0.3 }}
           className="max-w-4xl bg-neutral-900 p-8 rounded-xl shadow-2xl shadow-[#592f94]/30 text-gray-300 leading-relaxed"
         >
-          <h3 className="text-xl font-semibold mb-4 text-white">{legalPages[activePage].title}</h3>
+          <h3 className="text-xl font-semibold mb-4 text-white">
+            {legalPages[activePage].title}
+          </h3>
           <p>{legalPages[activePage].content}</p>
         </motion.div>
       </AnimatePresence>

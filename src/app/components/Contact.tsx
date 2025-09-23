@@ -12,26 +12,39 @@ export default function Contact() {
   };
 
   return (
-    <section className="bg-black py-20 px-6 flex flex-col items-center" id="contact">
+    <section
+      className="bg-black py-20 px-6 flex flex-col items-center"
+      id="contact"
+    >
       <motion.button
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
+        viewport={{ once: false, amount: 0.3 }}
         className="px-4 py-1.5 bg-neutral-900 text-sm rounded-full border border-gray-700 text-white shadow-md"
       >
         • Contact Us
       </motion.button>
 
-      <h2 className="mt-6 text-3xl md:text-4xl font-bold text-white text-center mb-10 leading-snug drop-shadow-lg">
+      <motion.h2
+        className="mt-6 text-3xl md:text-4xl font-bold text-white text-center mb-10 leading-snug drop-shadow-lg"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.3 }}
+      >
         Get in Touch <br />
-        <span className="text-[#592f94]">Let’s build something great together</span>
-      </h2>
+        <span className="text-[#592f94]">
+          Let’s build something great together
+        </span>
+      </motion.h2>
 
       <motion.div
         className="w-full max-w-3xl"
         initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.3 }}
       >
         {!submitted ? (
           <form
@@ -87,16 +100,31 @@ export default function Contact() {
             </button>
           </form>
         ) : (
-          <div className="text-center text-white p-8 bg-neutral-900 rounded-xl shadow-2xl shadow-[#592f94]/30">
+          <motion.div
+            className="text-center text-white p-8 bg-neutral-900 rounded-xl shadow-2xl shadow-[#592f94]/30"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false, amount: 0.3 }}
+          >
             <p className="text-lg font-semibold drop-shadow-md">
               Thanks — we’ll reply within 24 hours.
             </p>
-          </div>
+          </motion.div>
         )}
 
         {/* Contact Options */}
-        <div className="mt-8 flex flex-col sm:flex-row justify-center gap-6 text-gray-300 text-sm text-center">
-          <a href="mailto:hello@sceintifiz.com" className="hover:text-[#592f94]">
+        <motion.div
+          className="mt-8 flex flex-col sm:flex-row justify-center gap-6 text-gray-300 text-sm text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: false, amount: 0.3 }}
+        >
+          <a
+            href="mailto:hello@sceintifiz.com"
+            className="hover:text-[#592f94]"
+          >
             Email: hello@sceintifiz.com
           </a>
           <a href="tel:+1234567890" className="hover:text-[#592f94]">
@@ -105,7 +133,7 @@ export default function Contact() {
           <a href="#" className="hover:text-[#592f94]">
             Schedule a Call
           </a>
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );

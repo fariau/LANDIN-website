@@ -21,6 +21,7 @@ export default function Faq() {
 
   return (
     <section id="faq" className="relative bg-black text-white py-20 px-6 overflow-hidden">
+      {/* Background Blurs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] bg-[#592f94]/30 blur-[150px] rounded-full"></div>
         <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#592f94]/20 blur-[150px] rounded-full"></div>
@@ -31,8 +32,9 @@ export default function Faq() {
         <div className="relative md:translate-x-8">
           <motion.button
             initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            viewport={{ once: false }}
             className="px-4 py-1.5 bg-neutral-900 text-sm rounded-full border border-gray-700"
           >
             • FAQ
@@ -40,8 +42,9 @@ export default function Faq() {
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            viewport={{ once: false }}
             className="text-4xl font-bold mt-6 mb-4"
           >
             Frequently <br /> <span className="text-gray-400">Asked Questions</span>
@@ -49,8 +52,9 @@ export default function Faq() {
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: false }}
             className="text-gray-400 max-w-md mb-6"
           >
             Have questions? Our FAQ section has you covered with quick answers to the most common inquiries.
@@ -58,8 +62,9 @@ export default function Faq() {
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: false }}
             className="text-gray-300 mb-6"
           >
             Still have questions? We’re here to help.
@@ -67,8 +72,9 @@ export default function Faq() {
 
           <motion.a
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: false }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="#contact"
@@ -79,14 +85,14 @@ export default function Faq() {
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: false }}
             className="text-xs text-gray-500 mt-3"
           >
             Reply within 24 hours via email or WhatsApp.
           </motion.p>
         </div>
-
 
         {/* Right side FAQs */}
         <div className="space-y-4">
@@ -94,31 +100,34 @@ export default function Faq() {
             <motion.div
               key={index}
               layout
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white/5 rounded-xl overflow-hidden"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              viewport={{ once: false, amount: 0.3 }}
+              className="relative rounded-xl overflow-hidden"
             >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-medium hover:bg-[#592f94]/20 transition"
-              >
-                {faq.question}
-                <span className="text-xl">{openIndex === index ? "−" : "+"}</span>
-              </button>
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="px-6 pb-4 text-gray-400 text-sm"
-                  >
-                    {faq.answer}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div className="relative bg-white/5 rounded-xl">
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-medium hover:bg-[#592f94]/20 transition"
+                >
+                  {faq.question}
+                  <span className="text-xl">{openIndex === index ? "−" : "+"}</span>
+                </button>
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.5 }}
+                      className="px-6 pb-4 text-gray-400 text-sm"
+                    >
+                      {faq.answer}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </motion.div>
           ))}
         </div>
