@@ -1,0 +1,88 @@
+"use client";
+
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const menuItems = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "#about" },
+    { name: "Portfolio", href: "#portfolio" },
+    { name: "Contact", href: "#contact" },
+    { name: "FAQ", href: "#faq" },
+  ];
+
+  return (
+    <header className="w-full fixed top-0 left-0 z-50">
+      <div className="absolute inset-0 bg-black"></div>
+      <div className="relative flex justify-between items-center px-8 py-3 max-w-7xl mx-auto text-white">
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-xl font-bold tracking-widest"
+        >
+          LANDIN
+        </motion.div>
+
+        {/* Desktop Menu */}
+        <motion.ul
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="hidden md:flex space-x-6 text-gray-300 font-medium text-sm"
+        >
+          {menuItems.map((item, i) => (
+            <li key={i} className="relative group cursor-pointer transition">
+              <Link href={item.href}>{item.name}</Link>
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#592f94] transition-all duration-300 group-hover:w-full"></span>
+            </li>
+          ))}
+        </motion.ul>
+
+        {/* Button (Desktop) */}
+        <motion.button
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="hidden md:block ml-4 bg-gradient-to-r from-[#592f94] to-purple-700 text-white px-3 py-1.5 rounded-lg text-sm hover:opacity-90 shadow-lg shadow-purple-900/40"
+        >
+          Get In Touch
+        </motion.button>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden relative z-50"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Dropdown */}
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="md:hidden bg-black/90 backdrop-blur-md px-8 pb-5 space-y-4 text-gray-300 font-medium"
+        >
+          {menuItems.map((item, i) => (
+            <Link key={i} href={item.href} className="block hover:text-white">
+              {item.name}
+            </Link>
+          ))}
+          <button className="w-full bg-gradient-to-r from-[#592f94] to-purple-700 text-white px-3 py-2 rounded-lg hover:opacity-90 shadow-md shadow-purple-900/40 text-sm">
+            Get In Touch
+          </button>
+        </motion.div>
+      )}
+    </header>
+  );
+}
