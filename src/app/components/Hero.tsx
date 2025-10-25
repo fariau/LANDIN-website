@@ -18,15 +18,17 @@ export default function Hero() {
         viewport={{ once: false, amount: 0.3 }}
         className="mb-6 flex items-center space-x-2 z-10"
       >
-        <span className="bg-blue-600 text-xs px-3 py-1 rounded-full shadow-lg shadow-blue-500/40">
+        <span className="bg-[#592f94] text-xs px-3 py-1 rounded-full shadow-lg shadow-[#592f94]/50">
           Trusted by startups
         </span>
-        <span className="text-gray-300 text-sm">Fast delivery • 30-day support</span>
+        <span className="text-gray-300 text-sm">
+          Fast delivery • 30-day support
+        </span>
       </motion.div>
 
       {/* Gradient Headline */}
       <motion.h1
-        className="text-5xl md:text-6xl font-extrabold leading-tight bg-gradient-to-r from-blue-400 via-white to-purple-400 bg-clip-text text-transparent drop-shadow-lg z-10"
+        className="text-5xl md:text-6xl font-extrabold leading-tight bg-gradient-to-r from-[#7a3fbf] via-white to-[#592f94] bg-clip-text text-transparent drop-shadow-xl z-10"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -43,7 +45,8 @@ export default function Hero() {
         transition={{ duration: 1 }}
         viewport={{ once: false, amount: 0.3 }}
       >
-        We design high-converting websites and Shopify stores for startups and small businesses — fast, professional, and affordable.
+        We design high-converting websites and Shopify stores for startups and
+        small businesses — fast, professional, and affordable.
       </motion.p>
 
       {/* Buttons */}

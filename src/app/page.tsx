@@ -6,9 +6,9 @@ import Faq from "./components/Faq";
 import Contact from "./components/Contact";
 import Portfolio from "./components/Portfolio";
 import Pricing from "./components/Pricing";
-import Blog from "./components/Blog";
 import Legal from "./components/Legal";
 import Footer from "./components/Footer";
+
 
 export default function Home() {
   return (
@@ -17,10 +17,9 @@ export default function Home() {
       <Hero />
       <About />
       <ServiceCards />
-      <Faq />
       <Portfolio />
       <Pricing />
-      <Blog />
+      <Faq />
       <Contact />
       <Legal />
       <Footer />

@@ -7,7 +7,7 @@ const legalPages = [
   {
     title: "Privacy Policy",
     content: `
-      Your privacy is important to us. At Sceintifiz, we collect only the necessary
+      Your privacy is important to us. At Scientifiz, we collect only the necessary
       information to provide our services. We do not sell or share personal data
       with third parties without your consent. All collected data is secured and
       used solely for the purpose of delivering our services.

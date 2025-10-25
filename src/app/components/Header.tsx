@@ -17,8 +17,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="w-full fixed top-0 left-0 z-50">
-      <div className="absolute inset-0 bg-black"></div>
+    <header className="w-full fixed top-0 left-0 z-50 backdrop-blur-md bg-black/20 transition-all duration-300">
       <div className="relative flex justify-between items-center px-8 py-3 max-w-7xl mx-auto text-white">
         {/* Logo */}
         <motion.div
@@ -71,7 +70,7 @@ export default function Header() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="md:hidden bg-black/90 backdrop-blur-md px-8 pb-5 space-y-4 text-gray-300 font-medium"
+          className="md:hidden bg-black/80 backdrop-blur-lg px-8 pb-5 space-y-4 text-gray-300 font-medium"
         >
           {menuItems.map((item, i) => (
             <Link key={i} href={item.href} className="block hover:text-white">

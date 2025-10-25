@@ -7,7 +7,6 @@ import { FaLock } from "react-icons/fa";
 interface Service {
   title: string;
   desc: string;
-  price: string;
   features: string[];
   cta: string;
 }
@@ -16,39 +15,26 @@ const services: Service[] = [
   {
     title: "Custom Websites",
     desc: "Responsive design, fast load times, SEO-ready. Ideal for startups and small businesses to launch quickly online.",
-    price: "Websites starting from $300",
     features: ["Responsive design", "SEO-ready", "Fast load times", "Cross-browser compatibility"],
     cta: "See full services",
   },
   {
     title: "Shopify Stores",
     desc: "Ready-to-launch Shopify stores built with conversion principles — product pages, collections, discount flows, and payment setup.",
-    price: "Shopify setup from $350",
     features: ["Product pages & collections", "Payment & shipping setup", "Mobile optimized", "Upsell & discount flows"],
     cta: "Start your Shopify project",
   },
   {
-    title: "Branding & UI",
-    desc: "Logos, visual systems, UI kits — everything to create a strong brand identity and cohesive visual experience.",
-    price: "Brand kits from $150",
-    features: ["Logo design", "UI kits", "Visual systems", "Color palettes & typography"],
-    cta: "See full services",
-  },
-  {
-    title: "Maintenance / Support",
-    desc: "Ongoing website and Shopify store support to keep your project running smoothly.",
-    price: "Packages starting from $100/month",
-    features: ["Bug fixes & updates", "Content management", "Performance monitoring", "Security checks"],
-    cta: "Request support",
+    title: "WordPress Websites",
+    desc: "Professional WordPress websites with custom themes, plugins, and SEO optimization — perfect for blogs, portfolios, and businesses.",
+    features: ["Custom themes", "Plugin integration", "SEO optimization", "Easy content management"],
+    cta: "Build your WordPress site",
   },
 ];
 
 const ServiceCards: FC = () => {
   return (
-    <section
-      className="bg-black py-20 px-6 flex flex-col items-center"
-      id="services"
-    >
+    <section className="bg-black py-20 px-6 flex flex-col items-center" id="services">
       {/* Section Heading */}
       <motion.button
         initial={{ opacity: 0, y: -20 }}
@@ -72,7 +58,7 @@ const ServiceCards: FC = () => {
       </motion.h2>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl w-full">
         {services.map((s, i) => (
           <motion.div
             key={i}
@@ -80,7 +66,7 @@ const ServiceCards: FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: i * 0.2 }}
             viewport={{ once: false, amount: 0.2 }}
-            className="relative rounded-xl bg-gradient-to-br from-[#592f94]/90 to-[#592f94]/60 p-[1px] shadow-xl shadow-[#592f94]/30 hover:shadow-2xl hover:shadow-[#592f94]/40 transition"
+            className="relative rounded-xl bg-gradient-to-br from-[#592f94]/90 to-[#592f94]/60 p-[1px] shadow-xl shadow-[#592f94]/30 transition-all duration-300 hover:from-[#6a35b1]/100 hover:to-[#6a35b1]/80"
           >
             <div className="rounded-xl bg-black p-6 flex flex-col gap-4 h-full">
               <div className="flex items-center gap-3">
@@ -89,7 +75,6 @@ const ServiceCards: FC = () => {
               </div>
 
               <p className="text-gray-300 text-sm">{s.desc}</p>
-              <p className="text-[#592f94] font-semibold">{s.price}</p>
 
               <ul className="text-gray-400 list-disc list-inside space-y-1 text-sm">
                 {s.features.map((f, idx) => (

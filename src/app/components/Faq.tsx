@@ -100,34 +100,39 @@ export default function Faq() {
             <motion.div
               key={index}
               layout
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              viewport={{ once: false, amount: 0.3 }}
-              className="relative rounded-xl overflow-hidden"
+              transition={{ layout: { duration: 0.4, ease: "easeInOut" } }}
+              className="relative rounded-xl overflow-hidden bg-white/5 border border-white/10"
             >
-              <div className="relative bg-white/5 rounded-xl">
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-medium hover:bg-[#592f94]/20 transition"
+              <motion.button
+                layout
+                onClick={() => toggleFAQ(index)}
+                className="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-medium hover:bg-[#592f94]/20 transition-colors duration-300"
+              >
+                <span>{faq.question}</span>
+                <motion.span
+                  animate={{ rotate: openIndex === index ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-xl"
                 >
-                  {faq.question}
-                  <span className="text-xl">{openIndex === index ? "−" : "+"}</span>
-                </button>
-                <AnimatePresence>
-                  {openIndex === index && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.5 }}
-                      className="px-6 pb-4 text-gray-400 text-sm"
-                    >
-                      {faq.answer}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                  {openIndex === index ? "−" : "+"}
+                </motion.span>
+              </motion.button>
+
+              <AnimatePresence initial={false}>
+                {openIndex === index && (
+                  <motion.div
+                    key="content"
+                    layout
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                    className="px-6 pb-4 text-gray-400 text-sm"
+                  >
+                    {faq.answer}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           ))}
         </div>

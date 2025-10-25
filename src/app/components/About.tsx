@@ -9,11 +9,12 @@ export default function About() {
       className="relative flex flex-col items-center justify-center text-center px-6 py-28 bg-black text-white overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[420px] h-[420px] bg-[#592f94]/30 rounded-full blur-[150px]"></div>
+        {/* 🎯 Centered glow — doesn’t touch top or bottom */}
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[360px] h-[360px] bg-[#592f94]/35 rounded-full blur-[130px]"></div>
       </div>
 
       {/* Content */}
-      <div className="relative max-w-3xl mx-auto space-y-6 z-10">
+      <div className="relative max-w-6xl mx-auto space-y-6 z-10">
         <motion.button
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,44 +34,24 @@ export default function About() {
           viewport={{ once: false, amount: 0.3 }}
         >
           We help startups go live with{" "}
-          <span className="text-gray-300 font-semibold">
-            beautiful websites
-          </span>
+          <span className="text-gray-300 font-semibold">beautiful websites</span>
         </motion.h2>
 
         {/* Mission / Body */}
         <motion.p
-          className="text-gray-300 text-base leading-relaxed max-w-2xl mx-auto"
+          className="text-gray-300 text-base leading-relaxed mx-auto md:max-w-5xl lg:max-w-6xl"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: false, amount: 0.3 }}
         >
-          At <span className="text-white font-medium">Sceintifiz</span>, our
+          At <span className="text-white font-medium">Scientifiz</span>, our
           mission is to turn startup ideas into digital success. We design and
           develop websites and Shopify stores that look great and convert
           visitors into customers. With a focus on clean UI, fast performance,
           and clear CTAs, we help small businesses launch quickly and scale with
           confidence.
         </motion.p>
-
-        {/* Stats (optional highlights) */}
-        <motion.ul
-          className="space-y-3 text-left inline-block"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2 }}
-          viewport={{ once: false, amount: 0.3 }}
-        >
-          <li className="flex items-center gap-3">
-            <span className="text-[#592f94] text-xl">⬤</span>
-            From $0 to $600,000 in revenue.
-          </li>
-          <li className="flex items-center gap-3">
-            <span className="text-[#592f94] text-xl">⬤</span>
-            47% growth in new customers.
-          </li>
-        </motion.ul>
 
         {/* CTA + Rating */}
         <motion.div
