@@ -1,34 +1,61 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FC } from "react";
-import { FaLock } from "react-icons/fa";
+import { FC, JSX } from "react";
+import { FaCode, FaWordpress, FaShopify } from "react-icons/fa";
 
 interface Service {
   title: string;
   desc: string;
   features: string[];
-  cta: string;
+  icon: JSX.Element;
 }
 
 const services: Service[] = [
   {
-    title: "Custom Websites",
-    desc: "Responsive design, fast load times, SEO-ready. Ideal for startups and small businesses to launch quickly online.",
-    features: ["Responsive design", "SEO-ready", "Fast load times", "Cross-browser compatibility"],
-    cta: "See full services",
+    title: "Custom Web Solutions (Coded Websites)",
+    desc: `Build a website that’s fast, scalable, and 100% tailored to your brand. 
+Our development team creates clean, high-performing, and custom-coded websites that deliver seamless user experiences — 
+with full control over every line of code. Perfect for startups and enterprises aiming for uniqueness, flexibility, and power.`,
+    features: [
+      "Full Website Development (HTML, CSS, JS, React, etc.)",
+      "Custom UI/UX Design",
+      "Responsive Design for All Devices",
+      "API Integrations & Backend Setup",
+      "CMS (Custom Admin Panel or Headless CMS)",
+      "SEO & Speed Optimization",
+      "Website Maintenance and Security",
+    ],
+    icon: <FaCode className="text-[#592f94] text-2xl" />,
   },
   {
-    title: "Shopify Stores",
-    desc: "Ready-to-launch Shopify stores built with conversion principles — product pages, collections, discount flows, and payment setup.",
-    features: ["Product pages & collections", "Payment & shipping setup", "Mobile optimized", "Upsell & discount flows"],
-    cta: "Start your Shopify project",
+    title: "WordPress Website Development",
+    desc: `Create a modern website that’s easy to manage. With WordPress, 
+we build stunning websites that balance design and function — ideal for portfolios, blogs, company profiles, or service-based businesses.`,
+    features: [
+      "WordPress Website Design & Development",
+      "Theme Customization & Setup",
+      "Elementor / Gutenberg Page Builder Design",
+      "Plugin Integration & Optimization",
+      "Blog Setup & Management",
+      "WooCommerce Integration",
+      "Security, Backup, and Maintenance",
+    ],
+    icon: <FaWordpress className="text-[#592f94] text-2xl" />,
   },
   {
-    title: "WordPress Websites",
-    desc: "Professional WordPress websites with custom themes, plugins, and SEO optimization — perfect for blogs, portfolios, and businesses.",
-    features: ["Custom themes", "Plugin integration", "SEO optimization", "Easy content management"],
-    cta: "Build your WordPress site",
+    title: "Shopify Store Development",
+    desc: `Launch your online store with confidence. We design and develop high-converting Shopify stores optimized for sales, speed, and customer experience.`,
+    features: [
+      "Shopify Store Setup",
+      "Shopify Theme Customization",
+      "Custom Shopify Development",
+      "Shopify Migration Services",
+      "Shopify Integration Services (Apps, Payment Gateways, CRMs)",
+      "Shopify SEO Optimization",
+      "Regular Updates and Maintenance",
+    ],
+    icon: <FaShopify className="text-[#592f94] text-2xl" />,
   },
 ];
 
@@ -53,8 +80,7 @@ const ServiceCards: FC = () => {
         viewport={{ once: false, amount: 0.3 }}
         className="mt-6 text-3xl md:text-4xl font-bold text-white text-center mb-14 leading-snug"
       >
-        Get High-Quality <br />
-        <span className="text-[#592f94]">Clear Services Remotely.</span>
+        Crafting Digital Experiences That Work
       </motion.h2>
 
       {/* Cards */}
@@ -66,26 +92,20 @@ const ServiceCards: FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: i * 0.2 }}
             viewport={{ once: false, amount: 0.2 }}
-            className="relative rounded-xl bg-gradient-to-br from-[#592f94]/90 to-[#592f94]/60 p-[1px] shadow-xl shadow-[#592f94]/30 transition-all duration-300 hover:from-[#6a35b1]/100 hover:to-[#6a35b1]/80"
+            className="relative rounded-xl border border-[#592f94]/50 hover:border-[#592f94] bg-black p-6 shadow-lg transition-all duration-300"
           >
-            <div className="rounded-xl bg-black p-6 flex flex-col gap-4 h-full">
-              <div className="flex items-center gap-3">
-                <FaLock className="text-[#592f94] text-lg" />
-                <h3 className="text-xl font-semibold text-white">{s.title}</h3>
-              </div>
-
-              <p className="text-gray-300 text-sm">{s.desc}</p>
-
-              <ul className="text-gray-400 list-disc list-inside space-y-1 text-sm">
-                {s.features.map((f, idx) => (
-                  <li key={idx}>{f}</li>
-                ))}
-              </ul>
-
-              <button className="mt-auto w-full rounded-lg bg-[#592f94] hover:bg-[#4d267f] text-white py-2.5 font-medium transition">
-                {s.cta}
-              </button>
+            <div className="flex items-center gap-3 mb-3">
+              {s.icon}
+              <h3 className="text-xl font-semibold text-white">{s.title}</h3>
             </div>
+
+            <p className="text-gray-300 text-sm mb-3 whitespace-pre-line">{s.desc}</p>
+
+            <ul className="text-gray-400 list-disc list-inside space-y-1 text-sm">
+              {s.features.map((f, idx) => (
+                <li key={idx}>{f}</li>
+              ))}
+            </ul>
           </motion.div>
         ))}
       </div>

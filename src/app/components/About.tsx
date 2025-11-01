@@ -9,7 +9,6 @@ export default function About() {
       className="relative flex flex-col items-center justify-center text-center px-6 py-28 bg-black text-white overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none">
-        {/* 🎯 Centered glow — doesn’t touch top or bottom */}
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[360px] h-[360px] bg-[#592f94]/35 rounded-full blur-[130px]"></div>
       </div>
 
@@ -34,10 +33,10 @@ export default function About() {
           viewport={{ once: false, amount: 0.3 }}
         >
           We help startups go live with{" "}
-          <span className="text-gray-300 font-semibold">beautiful websites</span>
+          <span className="text-gray-300 font-semibold">beautiful websites & stores</span>
         </motion.h2>
 
-        {/* Mission / Body */}
+        {/* Description */}
         <motion.p
           className="text-gray-300 text-base leading-relaxed mx-auto md:max-w-5xl lg:max-w-6xl"
           initial={{ opacity: 0, y: 40 }}
@@ -45,29 +44,13 @@ export default function About() {
           transition={{ duration: 1 }}
           viewport={{ once: false, amount: 0.3 }}
         >
-          At <span className="text-white font-medium">Scientifiz</span>, our
-          mission is to turn startup ideas into digital success. We design and
-          develop websites and Shopify stores that look great and convert
-          visitors into customers. With a focus on clean UI, fast performance,
-          and clear CTAs, we help small businesses launch quickly and scale with
-          confidence.
+          At <span className="text-white font-medium">Scientifiz</span>, we craft powerful digital experiences that help businesses grow
+          faster and stand out online. From sleek landing pages to complex eCommerce systems, we build
+          websites that don’t just look stunning — they perform. Our approach combines design, strategy,
+          and technology to create platforms that convert visitors into loyal customers. Whether you’re a
+          startup, small business, or enterprise, Scientifiz is your trusted partner for professional,
+          high-performance web solutions in Pakistan and beyond.
         </motion.p>
-
-        {/* CTA + Rating */}
-        <motion.div
-          className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-4"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.4 }}
-          viewport={{ once: false, amount: 0.3 }}
-        >
-          <button className="px-5 py-2.5 rounded-lg bg-[#592f94] hover:bg-purple-700 transition">
-            Meet the Team
-          </button>
-          <button className="px-5 py-2.5 rounded-lg bg-white/10 border border-gray-700 hover:bg-white/20 transition">
-            Work with Us
-          </button>
-        </motion.div>
       </div>
     </section>
   );

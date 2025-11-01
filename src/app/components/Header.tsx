@@ -18,15 +18,20 @@ export default function Header() {
 
   return (
     <header className="w-full fixed top-0 left-0 z-50 backdrop-blur-md bg-black/20 transition-all duration-300">
-      <div className="relative flex justify-between items-center px-8 py-3 max-w-7xl mx-auto text-white">
+      <div className="relative flex justify-between items-center px-8 py-3 max-w-8xl mx-auto text-white">
         {/* Logo */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-xl font-bold tracking-widest"
         >
-          LANDIN
+          <Link href="/">
+            <img
+              src="/logo.png"
+              alt="Logo"
+              className="h-10 w-auto object-contain"
+            />
+          </Link>
         </motion.div>
 
         {/* Desktop Menu */}
@@ -44,12 +49,12 @@ export default function Header() {
           ))}
         </motion.ul>
 
-        {/* Button (Desktop) */}
+        {/* Button (Desktop) — Effects removed */}
         <motion.button
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="hidden md:block ml-4 bg-gradient-to-r from-[#592f94] to-purple-700 text-white px-3 py-1.5 rounded-lg text-sm hover:opacity-90 shadow-lg shadow-purple-900/40"
+          className="hidden md:block ml-4 bg-[#592f94] text-white px-3 py-1.5 rounded-lg text-sm"
         >
           Get In Touch
         </motion.button>
@@ -77,7 +82,8 @@ export default function Header() {
               {item.name}
             </Link>
           ))}
-          <button className="w-full bg-gradient-to-r from-[#592f94] to-purple-700 text-white px-3 py-2 rounded-lg hover:opacity-90 shadow-md shadow-purple-900/40 text-sm">
+          {/* Mobile Button — Effects removed */}
+          <button className="w-full bg-[#592f94] text-white px-3 py-2 rounded-lg text-sm">
             Get In Touch
           </button>
         </motion.div>

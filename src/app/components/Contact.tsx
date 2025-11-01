@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -74,16 +75,20 @@ export default function Contact() {
               className="p-3 rounded-lg bg-black border border-gray-700 text-white focus:outline-none focus:border-[#592f94] shadow-inner"
             />
 
-            {/* Budget */}
-            <select
-              className="p-3 rounded-lg bg-black border border-gray-700 text-white focus:outline-none focus:border-[#592f94] shadow-inner"
-              required
-            >
-              <option value="">Select Budget</option>
-              <option value="$300-$500">$300-$500</option>
-              <option value="$500-$1000">$500-$1000</option>
-              <option value="$1000+">$1000+</option>
-            </select>
+            {/* Budget with icon */}
+            <div className="relative">
+              <select
+                className="appearance-none w-full p-3 rounded-lg bg-black border border-gray-700 text-white focus:outline-none focus:border-[#592f94] shadow-inner pr-10"
+                required
+              >
+                <option value="">Select Budget</option>
+                <option value="$0-$300">$0 - $300</option>
+                <option value="$300-$500">$300 - $500</option>
+                <option value="$500-$1000">$500 - $1000</option>
+                <option value="$1000+">$1000+</option>
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+            </div>
 
             {/* Project Summary */}
             <textarea
@@ -125,13 +130,10 @@ export default function Contact() {
             href="mailto:hello@sceintifiz.com"
             className="hover:text-[#592f94]"
           >
-            Email: hello@sceintifiz.com
+            Email: hello@scientifiz.com
           </a>
-          <a href="tel:+1234567890" className="hover:text-[#592f94]">
-            WhatsApp / Phone: +1 234 567 890
-          </a>
-          <a href="#" className="hover:text-[#592f94]">
-            Schedule a Call
+          <a href="https://wa.me/1234567890" target="_blank" className="hover:text-[#592f94]">
+            WhatsApp: +92 309 7489899
           </a>
         </motion.div>
       </motion.div>
