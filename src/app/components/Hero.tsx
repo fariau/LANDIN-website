@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -8,7 +9,7 @@ export default function Hero() {
       className="relative flex flex-col items-center justify-center text-center px-6 py-32 
                  bg-black text-white overflow-hidden"
       style={{
-        backgroundImage: "url('/Background.png')", // ✅ Make sure this image is in your /public folder
+        backgroundImage: "url('/Background.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -42,7 +43,7 @@ export default function Hero() {
         transition={{ duration: 1 }}
         viewport={{ once: false, amount: 0.3 }}
       >
-        We design high-converting websites and Shopify stores for startups and small businesses — 
+        We design high-converting websites and Shopify stores for startups and small businesses —
         fast, professional, and affordable.
       </motion.p>
 
@@ -56,19 +57,15 @@ export default function Hero() {
       >
         <motion.button
           whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-[#592f94] text-white px-6 py-3 rounded-xl font-medium shadow-lg hover:shadow-2xl transition"
-        >
-          Get a Free Quote
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-gray-900 border border-gray-700 px-6 py-3 rounded-xl font-medium hover:bg-gray-800 shadow-lg hover:shadow-2xl transition"
-        >
-          View Portfolio
+          whileTap={{ scale: 0.95 }}>
+          <Link
+            href="#portfolio"
+            className="bg-[#592f94] text-white px-6 py-3 rounded-xl font-medium shadow-lg hover:shadow-2xl transition inline-block"
+          >
+            View Portfolio
+          </Link>
         </motion.button>
       </motion.div>
-    </section>
+    </section >
   );
 }

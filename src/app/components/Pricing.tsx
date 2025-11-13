@@ -13,8 +13,8 @@ const packages: Package[] = [
     title: "Starter",
     features: [
       { label: "Custom Web Solutions", value: "$199" },
-      { label: "WordPress Website", value: "₨ 35,000" },
-      { label: "Shopify Store", value: "₨ 50,000" },
+      { label: "WordPress Website", value: "$35,000" },
+      { label: "Shopify Store", value: "$50,000" },
       { label: "Delivery Time", value: "3–7 Days" },
       { label: "Pages Included", value: "Up to 3" },
       { label: "Design", value: "Pre-made theme customization" },
@@ -32,8 +32,8 @@ const packages: Package[] = [
     title: "Professional",
     features: [
       { label: "Custom Web Solutions", value: "$389" },
-      { label: "WordPress Website", value: "₨ 70,000" },
-      { label: "Shopify Store", value: "₨ 95,000" },
+      { label: "WordPress Website", value: "$70,000" },
+      { label: "Shopify Store", value: "$95,000" },
       { label: "Delivery Time", value: "7–12 Days" },
       { label: "Pages Included", value: "Up to 8" },
       { label: "Design", value: "Semi-custom design" },
@@ -51,8 +51,8 @@ const packages: Package[] = [
     title: "Enterprise",
     features: [
       { label: "Custom Web Solutions", value: "$1099+" },
-      { label: "WordPress Website", value: "₨ 120,000+" },
-      { label: "Shopify Store", value: "₨ 180,000+" },
+      { label: "WordPress Website", value: "$120,000+" },
+      { label: "Shopify Store", value: "$180,000+" },
       { label: "Delivery Time", value: "12–25 Days" },
       { label: "Pages Included", value: "Unlimited" },
       { label: "Design", value: "Fully custom UI/UX" },

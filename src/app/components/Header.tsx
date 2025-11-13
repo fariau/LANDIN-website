@@ -49,15 +49,23 @@ export default function Header() {
           ))}
         </motion.ul>
 
-        {/* Button (Desktop) — Effects removed */}
-        <motion.button
+        {/* Button */}
+        <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="hidden md:block ml-4 bg-[#592f94] text-white px-3 py-1.5 rounded-lg text-sm"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="hidden md:block ml-4"
         >
-          Get In Touch
-        </motion.button>
+          <Link
+            href="#contact"
+            className="bg-[#592f94] text-white px-3 py-1.5 rounded-lg text-sm transition-transform duration-300 inline-block hover:shadow-2xl"
+          >
+            Get In Touch
+          </Link>
+        </motion.div>
+
 
         {/* Mobile Menu Button */}
         <button
@@ -82,7 +90,7 @@ export default function Header() {
               {item.name}
             </Link>
           ))}
-          {/* Mobile Button — Effects removed */}
+          {/* Mobile Button */}
           <button className="w-full bg-[#592f94] text-white px-3 py-2 rounded-lg text-sm">
             Get In Touch
           </button>

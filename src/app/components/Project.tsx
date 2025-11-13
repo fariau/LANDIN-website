@@ -1,88 +1,101 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const projects = [
-  {
-    title: "Scientifiz Official Website",
-    url: "https://scientifiz.com",
-  },
-  {
-    title: "Ecommerce Store",
-    url: "https://yourstorelink.com",
-  },
-  {
-    title: "Corporate Landing Page",
-    url: "https://landingpage.com",
-  },
-  {
-    title: "Portfolio Website",
-    url: "https://portfolio.com",
-  },
-  {
-    title: "Startup Site",
-    url: "https://startup.com",
-  },
-  {
-    title: "Business Web App",
-    url: "https://webapp.com",
-  },
+  { img: "/project1.jpeg" },
+  { img: "/project2.jpeg" },
+  { img: "/project3.jpeg" },
+  { img: "/project4.jpeg" },
+  { img: "/project5.jpeg" },
+  { img: "/project6.jpeg" },
 ];
 
 export default function Portfolio() {
+  const [stack, setStack] = useState(projects);
+  const [positions, setPositions] = useState(
+    projects.map(() => ({ x: 0, y: 0, rotate: 0 }))
+  );
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStack((prev) => {
+        const [first, ...rest] = prev;
+        return [...rest, first];
+      });
+
+      setPositions(
+        projects.map(() => ({
+          x: Math.random() * 80 - 40,
+          y: Math.random() * 50 - 25,
+          rotate: Math.random() * 20 - 10,
+        }))
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
-      className="bg-black py-20 px-6 flex flex-col items-center"
       id="portfolio"
+      className="relative overflow-hidden bg-black flex flex-col items-center justify-center py-24 px-6"
     >
-      {/* Section Heading */}
+      {/* Side Gradient Glow Effect */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[350px] h-[400px] bg-[#592f94]/35 rounded-full blur-[150px]" />
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[350px] h-[400px] bg-[#592f94]/35 rounded-full blur-[150px]" />
+      </div>
+
+      {/* Heading */}
       <motion.button
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: false }}
-        className="px-4 py-1.5 bg-neutral-900 text-sm rounded-full border border-gray-700 text-white"
+        className="px-4 py-1.5 bg-neutral-900 text-sm rounded-full border border-gray-700 text-white z-10"
       >
         • Portfolio / Case Studies
       </motion.button>
 
       <motion.h2
-        className="mt-6 text-3xl md:text-4xl font-bold text-white text-center mb-14 leading-snug"
+        className="mt-6 text-3xl md:text-4xl font-bold text-white text-center mb-12 leading-snug z-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        viewport={{ once: false, amount: 0.3 }}
       >
         Projects <br />
         <span className="text-[#592f94]">That Define Our Work</span>
       </motion.h2>
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl w-full">
-        {projects.map((p, i) => (
-          <motion.a
-            key={i}
-            href={p.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: i * 0.1 }}
-            viewport={{ once: false, amount: 0.2 }}
-            className="group relative overflow-hidden rounded-xl border border-gray-800 hover:border-[#592f94] transition-all duration-300"
-          >
-            {/* Gradient Placeholder Box */}
-            <div className="w-full h-64 bg-gradient-to-br from-[#592f94] to-[#1e1e2f] flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-              <p className="text-white text-lg font-semibold text-center px-4">
-                {p.title}
-              </p>
-            </div>
-
-            {/* Hover Overlay */}
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
-              <p className="text-white text-base font-medium">View Project</p>
-            </div>
-          </motion.a>
+      {/* Stack of Images */}
+      <div className="relative w-full max-w-6xl aspect-video flex justify-center items-center z-10">
+        {stack.map((p, i) => (
+          <motion.div
+            key={p.img}
+            className="absolute w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] aspect-video rounded-xl overflow-hidden border border-gray-800 shadow-md"
+            style={{
+              backgroundImage: `url(${p.img})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              zIndex: stack.length - i,
+            }}
+            animate={{
+              x: positions[i].x,
+              y: positions[i].y,
+              rotate: positions[i].rotate,
+            }}
+            transition={{
+              duration: 1.5,
+              ease: "easeInOut",
+            }}
+            whileHover={{
+              scale: 1.1,
+              rotate: 0,
+              zIndex: 999,
+              boxShadow: "0 0 45px rgba(89,47,148,0.8)",
+            }}
+          />
         ))}
       </div>
     </section>

@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 export default function Footer() {
   return (
     <footer className="relative bg-black text-gray-300 py-12 px-6 overflow-hidden">
-      {/* Background Glow */}
       <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-[#592f94]/30 blur-3xl pointer-events-none"></div>
 
       {/* Main Footer Content */}
@@ -28,7 +27,6 @@ export default function Footer() {
           <Link href="#services" className="hover:text-[#b770ff] transition">Services</Link>
           <Link href="#portfolio" className="hover:text-[#b770ff] transition">Portfolio</Link>
           <Link href="#pricing" className="hover:text-[#b770ff] transition">Pricing</Link>
-          <Link href="#blog" className="hover:text-[#b770ff] transition">Blog</Link>
           <Link href="#contact" className="hover:text-[#b770ff] transition">Contact</Link>
           <Link href="#legal" className="hover:text-[#b770ff] transition">Legal</Link>
         </div>

@@ -132,7 +132,7 @@ export default function Faq() {
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="px-6 pb-4 text-gray-300 text-sm text-center"
+                    className="px-6 py-4 text-gray-300 text-sm text-left"
                   >
                     {faq.answer}
                   </motion.div>

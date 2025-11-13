@@ -14,32 +14,29 @@ interface Service {
 const services: Service[] = [
   {
     title: "Custom Web Solutions (Coded Websites)",
-    desc: `Build a website that’s fast, scalable, and 100% tailored to your brand. 
-Our development team creates clean, high-performing, and custom-coded websites that deliver seamless user experiences — 
-with full control over every line of code. Perfect for startups and enterprises aiming for uniqueness, flexibility, and power.`,
+    desc: `Build fast, scalable websites tailored to your brand. Custom-coded solutions for seamless user experience, uniqueness, and flexibility.`,
     features: [
       "Full Website Development (HTML, CSS, JS, React, etc.)",
       "Custom UI/UX Design",
-      "Responsive Design for All Devices",
+      "Responsive Design",
       "API Integrations & Backend Setup",
-      "CMS (Custom Admin Panel or Headless CMS)",
+      "CMS or Headless CMS",
       "SEO & Speed Optimization",
-      "Website Maintenance and Security",
+      "Maintenance & Security",
     ],
     icon: <FaCode className="text-[#592f94] text-2xl" />,
   },
   {
     title: "WordPress Website Development",
-    desc: `Create a modern website that’s easy to manage. With WordPress, 
-we build stunning websites that balance design and function — ideal for portfolios, blogs, company profiles, or service-based businesses.`,
+    desc: `Modern, easy-to-manage WordPress websites that balance design and function. Perfect for blogs, portfolios, and service-based businesses.`,
     features: [
-      "WordPress Website Design & Development",
-      "Theme Customization & Setup",
-      "Elementor / Gutenberg Page Builder Design",
-      "Plugin Integration & Optimization",
+      "WordPress Design & Development",
+      "Theme Customization",
+      "Page Builder Design",
+      "Plugin Integration",
       "Blog Setup & Management",
       "WooCommerce Integration",
-      "Security, Backup, and Maintenance",
+      "Security & Maintenance",
     ],
     icon: <FaWordpress className="text-[#592f94] text-2xl" />,
   },
@@ -48,12 +45,12 @@ we build stunning websites that balance design and function — ideal for portfo
     desc: `Launch your online store with confidence. We design and develop high-converting Shopify stores optimized for sales, speed, and customer experience.`,
     features: [
       "Shopify Store Setup",
-      "Shopify Theme Customization",
-      "Custom Shopify Development",
-      "Shopify Migration Services",
-      "Shopify Integration Services (Apps, Payment Gateways, CRMs)",
-      "Shopify SEO Optimization",
-      "Regular Updates and Maintenance",
+      "Theme Customization",
+      "Custom Development",
+      "Migration Services",
+      "App & Payment Integration",
+      "SEO Optimization",
+      "Updates & Maintenance",
     ],
     icon: <FaShopify className="text-[#592f94] text-2xl" />,
   },
@@ -74,13 +71,14 @@ const ServiceCards: FC = () => {
       </motion.button>
 
       <motion.h2
+        className="mt-6 text-3xl md:text-4xl font-bold text-white text-center mb-14 leading-snug"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.7 }}
         viewport={{ once: false, amount: 0.3 }}
-        className="mt-6 text-3xl md:text-4xl font-bold text-white text-center mb-14 leading-snug"
       >
-        Crafting Digital Experiences That Work
+        Crafting Digital <br />
+        <span className="text-[#592f94]">Experiences That Work</span>
       </motion.h2>
 
       {/* Cards */}
@@ -90,18 +88,24 @@ const ServiceCards: FC = () => {
             key={i}
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: i * 0.2 }}
+            whileHover={{ scale: 1.03, boxShadow: "0 20px 40px rgba(89, 47, 148, 0.4)" }}
+            transition={{ duration: 0.3, delay: i * 0.2 }}
             viewport={{ once: false, amount: 0.2 }}
-            className="relative rounded-xl border border-[#592f94]/50 hover:border-[#592f94] bg-black p-6 shadow-lg transition-all duration-300"
+            className="relative rounded-xl border border-[#592f94]/50 bg-black p-6 shadow-lg cursor-pointer transition-all duration-300"
           >
-            <div className="flex items-center gap-3 mb-3">
+            {/* Icon + Heading */}
+            <div className="flex items-start gap-3 mb-3">
               {s.icon}
-              <h3 className="text-xl font-semibold text-white">{s.title}</h3>
+              <h3 className="text-xl font-semibold text-white">
+                {s.title}
+              </h3>
             </div>
 
-            <p className="text-gray-300 text-sm mb-3 whitespace-pre-line">{s.desc}</p>
+            {/* Description */}
+            <p className="text-gray-300 text-sm mb-3">{s.desc}</p>
 
-            <ul className="text-gray-400 list-disc list-inside space-y-1 text-sm">
+            {/* Features List */}
+            <ul className="text-gray-400 list-disc list-outside pl-4 space-y-1 text-sm">
               {s.features.map((f, idx) => (
                 <li key={idx}>{f}</li>
               ))}
