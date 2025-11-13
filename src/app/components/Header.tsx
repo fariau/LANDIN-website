@@ -91,8 +91,12 @@ export default function Header() {
             </Link>
           ))}
           {/* Mobile Button */}
-          <button className="w-full bg-[#592f94] text-white px-3 py-2 rounded-lg text-sm">
-            Get In Touch
+          <button>
+            <Link
+              href="#contact"
+              className="w-full bg-[#592f94] text-white px-3 py-2 rounded-lg text-sm">
+              Get In Touch
+            </Link>
           </button>
         </motion.div>
       )}
