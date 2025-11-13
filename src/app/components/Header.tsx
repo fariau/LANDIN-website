@@ -91,13 +91,13 @@ export default function Header() {
             </Link>
           ))}
           {/* Mobile Button */}
-          <button>
-            <Link
-              href="#contact"
-              className="w-full bg-[#592f94] text-white px-3 py-2 rounded-lg text-sm">
+
+          <Link href="#contact" passHref>
+            <button className="w-full bg-[#592f94] text-white px-3 py-2 rounded-lg text-sm">
               Get In Touch
-            </Link>
-          </button>
+            </button>
+          </Link>
+
         </motion.div>
       )}
     </header>
